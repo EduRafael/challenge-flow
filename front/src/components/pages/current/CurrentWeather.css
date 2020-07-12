@@ -1,0 +1,64 @@
+.Current {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.graph-layout {
+	min-width: 50%;
+}
+
+.current-container {
+	color: hsl(207, 79%, 42%);
+	font-weight: bold;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	min-width: 30%;
+	height: 18rem;
+}
+
+.current-temp {
+	font-size: 2rem;
+}
+
+.current-date {
+	font-size: 1.5rem;
+	text-transform: capitalize;
+}
+
+.info-list {
+	min-width: 20%;
+	height: 18rem;
+	font-size: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.info-list div {
+	display: flex;
+	align-items: center;
+}
+
+.info-list svg {
+	margin-right: 1rem;
+}
+.caption-container {
+	text-transform: capitalize;
+}
+
+@media (max-width: 1000px) {
+	.graph-layout {
+		min-width: 100%;
+	}
+}
+
+@media (min-width: 1001px) {
+	.graph-layout {
+		width: 50%;
+	}
+}

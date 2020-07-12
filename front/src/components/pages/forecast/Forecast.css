@@ -1,0 +1,102 @@
+.Main {
+    min-width: 100%;
+    display:block;
+    position:relative;
+    border-radius:.5rem;
+    box-shadow: 2px 3px 13px -6px rgba(0,0,0,0.75);
+    padding:.5rem;
+    box-sizing:border-box;
+    background-color:white;
+    background: white;
+    width: 100%;
+    height: 18rem;
+    margin-top: 1rem;
+}
+
+.Main li div {
+    background-color:white;
+    background: white;
+    position: relative;
+    padding: 2px;
+    
+}
+
+ul .control-dots {
+    position: absolute;
+}
+
+.current-container {
+	color: hsl(207, 79%, 42%);
+	font-weight: bold;
+	display: block;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	min-width: 30%;
+	height: 12rem;
+}
+
+.info-list {
+	min-width: 20%;
+    font-size: 1.5rem;
+    height: 12rem;
+    padding: 2rem;
+    margin: auto 50px;
+	display: inline-block;
+	flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.info-list div {
+	display: flex;
+    align-items: center;
+    
+}
+
+.carousel .slide img {
+    width: 100%;
+    border: 1px;
+    height: 7rem;
+    display: block;
+    margin: auto;
+    position: relative;
+}
+
+.current-temp {
+	font-size: 2rem;
+}
+
+.current-date {
+	font-size: 1.5rem;
+	text-transform: capitalize;
+}
+
+.carousel.carousel-slider .control-arrow {
+    top: 0;
+    color: rgb(8, 115, 148);
+    font-size: 26px;
+    bottom: 0;
+    margin-top: 0;
+    padding: 5px;
+    background: rgba(45, 70, 70, 0.253);
+}
+
+.carousel.carousel-slider .control-arrow:hover {
+    top: 0;
+    color: rgb(8, 115, 148);
+    font-size: 26px;
+    bottom: 0;
+    margin-top: 0;
+    padding: 5px;
+    background: rgb(36, 139, 143);
+}
+
+.carousel.carousel-slider .carousel-status {
+    display: block;
+    position: relative;
+    margin: auto;
+    padding: 2rem;
+    bottom: -20px;
+    text-align: center;
+}

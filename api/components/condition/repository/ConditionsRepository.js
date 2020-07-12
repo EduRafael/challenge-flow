@@ -11,7 +11,6 @@ const driver = new OpenWeatherMap(config);
 
 exports.find_location_info = async (params) => {
     try {
-        //TODO: falta proceso que permita identificar el id de la ciudad a través de la ip del servidor
         let data = await driver.getCurrent_LocationInfo(params)
         return data.city
     } catch (e) {
@@ -30,7 +29,6 @@ exports.find_current_info = async (params) => {
 
 exports.find_forecast_info = async (params) => {
     try {
-        //TODO: falta proceso que permita identificar el id de la ciudad a través de la ip del servidor
         let data = await driver.getForecast_LocationInfo(params)
         return data
     } catch (e) {

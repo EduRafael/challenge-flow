@@ -1,19 +1,20 @@
 var os = require('os');
+const dns = require('dns');
+const geoip = require('geoip-lite');
 
 var ifaces = os.networkInterfaces();
 
 
-exports.getIp = () => {
-    let ip = '';
-    var os = require( 'os' ); 
-    // var networkInterfaces = os.networkInterfaces( ); 
-    // console.log({red: networkInterfaces.wlp2s0 });
+exports.getIp = async () => {
+    let geo = await dns.lookup(os.hostname(), (err, add, fam) => {
+        if(add == '127.0.1.1')
+            geo = 'buenos aires, ar'
+        else 
+            geo = geoip.lookup(add) 
+            
+        return geo     
+    })
 
-    // require('dns').lookup(require('os').hostname(), function (err, add, fam) { console.log('addr: '+add); }) 
-    var networkInterfaces = os.networkInterfaces( );
-
-    console.log( networkInterfaces );
-        
+    return geo
 }
-
 

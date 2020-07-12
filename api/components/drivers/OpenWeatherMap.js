@@ -12,7 +12,7 @@ module.exports = class OpenWeatherMap{
      */
     getCurrent_LocationInfo (city_name) {
         return new Promise ((resolve, reject)=>{
-            req.get(`${this.url_current}?q=${city_name}&units=metric&appid=${this.appid}`, (err, data)=>{
+            req.get(`${this.url_current}?q=${city_name}&appid=${this.appid}&units=metric&lang=es`, (err, data)=>{
                 if(err){
                     return reject(err)
                 }
@@ -33,7 +33,7 @@ module.exports = class OpenWeatherMap{
      */
     getForecast_LocationInfo (city_name) {
         return new Promise ((resolve, reject)=>{
-            req.get(`${this.url_forecast}?q=${city_name}&units=metric&appid=${this.appid}`, (err, data)=>{
+            req.get(`${this.url_forecast}?q=${city_name}&appid=${this.appid}&units=metric&lang=es`, (err, data)=>{
                 if(err)
                     return reject(err)
                 
@@ -55,7 +55,6 @@ module.exports = class OpenWeatherMap{
      * cosas especificas para dicha operación.
      */
     parseResponse(data_json){
-        console.log({data_json});
         let info = {
             city : {
                 name_city: data_json.name,
@@ -73,7 +72,8 @@ module.exports = class OpenWeatherMap{
                 humidity: data_json.main.humidity
             },
             wind_speed: data_json.wind.speed,
-            icon_data: data_json.weather.icon
+            icon_data: data_json.weather[0].icon,
+            description: data_json.weather[0].description
         }
         return info
     }
@@ -86,7 +86,6 @@ module.exports = class OpenWeatherMap{
      */
     parseJsonFormat (data) {
         var data_info_json = [], date_data = [];
-
         data.list.map(item => {
             let info = {
                 day:item.dt_txt.substring(0,10),
@@ -98,7 +97,8 @@ module.exports = class OpenWeatherMap{
                     humidity: item.main.humidity
                 },
                 wind_speed: item.wind.speed,
-                icon_data: item.weather.icon,
+                icon_data: item.weather[0].icon,
+                description: item.weather[0].description,
                 hour: item.dt_txt.substring(11,16)
             }
             

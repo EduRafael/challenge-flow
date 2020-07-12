@@ -9,8 +9,7 @@ const AppError = require('../../../exceptions/AppError');
 
 exports.find_location = async (req, res) => {
     try {
-        console.log({req: req.connection})
-        let id_city = await validate_ip_server(req.ip);
+        let id_city = await validate_ip_server(req.params);
         let result = await find_location_info(id_city);
         
         if( result instanceof AppError)
@@ -24,7 +23,8 @@ exports.find_location = async (req, res) => {
 
 exports.find_current = async (req, res) => {
     try {
-        let id_city = req.params.city
+        //let id_city = req.params.city
+        let id_city = await validate_ip_server(req.params);
         let result = await find_current_info(id_city);
 
         if( result instanceof AppError)
@@ -38,7 +38,7 @@ exports.find_current = async (req, res) => {
 
 exports.find_forecast = async (req, res) => {
     try {
-        let id_city = req.params.city
+        let id_city = await validate_ip_server(req.params);
         let result = await find_forecast_info(id_city);
 
         if( result instanceof AppError)

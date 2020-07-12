@@ -19,7 +19,7 @@ const allowCrossDomain = function (req, res, next) {
 
 //Use cors allow
 app.use(allowCrossDomain)
-
+app.set('trust proxy', true);
 const conditions = require('./components/condition/router/ConditionsRoutes')
 app
     .use('/v1', conditions);
