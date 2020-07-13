@@ -9,7 +9,7 @@ const AppError = require('../../../exceptions/AppError');
 
 exports.find_location = async (req, res) => {
     try {
-        let id_city = await validate_ip_server(req.params);
+        let id_city = await validate_ip_server({ip:req.headers['x-forwarded-for']});
         let result = await find_location_info(id_city);
         
         if( result instanceof AppError)
@@ -23,7 +23,6 @@ exports.find_location = async (req, res) => {
 
 exports.find_current = async (req, res) => {
     try {
-        //let id_city = req.params.city
         let id_city = await validate_ip_server(req.params);
         let result = await find_current_info(id_city);
 

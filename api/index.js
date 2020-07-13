@@ -17,9 +17,13 @@ const allowCrossDomain = function (req, res, next) {
     next()
 };
 
+//X-Forwarded-For:181.46.137.8
+app.set('trust proxy', true);
+
 //Use cors allow
 app.use(allowCrossDomain)
-app.set('trust proxy', true);
+
+
 const conditions = require('./components/condition/router/ConditionsRoutes')
 app
     .use('/v1', conditions);

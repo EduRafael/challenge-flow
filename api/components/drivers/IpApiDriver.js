@@ -8,11 +8,16 @@ module.exports = class IpStack{
 
     getGeoInfo (ip_address) {
         return new Promise ((resolve, reject)=>{
+            //TODO: no me permite acceder a la IP pública, actualmente funciona con la harcodeada
             req.get(`${this.url}/${ip_address}?access_key=${this.appid}`, (err, data)=>{
-                if(err)
+                if(err){
                     return reject(err)
-                
-                return resolve(JSON.parse(data.body))
+                }
+
+                let result = JSON.parse(data.body)
+                if (result.city == undefined || result.city == "")
+                    return resolve({city: ""})
+                return resolve(result)
             })
         });
     };

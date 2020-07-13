@@ -20,6 +20,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "geoip-lite": "^1.4.2",
+    "ipapi": "^1.0.0",
     "lodash": "^4.17.17",
     "moment": "^2.27.0",
     "node-dev": "^5.0.0",

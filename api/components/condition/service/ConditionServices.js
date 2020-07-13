@@ -1,14 +1,15 @@
 const geoip = require('geoip-lite');
-const ipstack = require('./../../drivers/IpStack.driver')
+const ip_api = require('../../drivers/IpApiDriver')
 const {getIp}           = require('./../../drivers/GetIP');
 const AppError = require('./../../../exceptions/AppError')
 const moment = require('moment')
+const AK_IPAPI = process.env.API_KEY_IPAPI;
 
 var myip = require('quick-local-ip');
 
 const config = {
-    appid   : process.env.API_KEY_IPS,
-    url     : `http://api.ipstack.com`
+    appid   : AK_IPAPI,
+    url     : `http://api.ipapi.com`
 }
 
 exports.validate_ip_server = async (params)=>{
@@ -18,13 +19,24 @@ exports.validate_ip_server = async (params)=>{
                 throw new AppError('Error en el nombre de la ciudad, verifique por favor', 400)
             return params.city
         } else {
-            console.log({ip: await getIp()});
-            let ipGetInfo = new ipstack(config)
+            let ip_address = "";
+            //TODO: en el momento de poder accerder a la ip publica de cualquier servidor, se deberia poder descomentar la siguiente función
+            //      por ahora, la dejo comentada y forwardeo una ip desde el lado de postman y en el .env, una vez esté funcional las validaciones de abajo
+            //      deberian ser eliminadas porque no es la forma correcta de hacerlo.
+            //ip_address =myip.getLocalIP4();
+            
+            if(params.ip && params.ip != "")
+                ip_address = params.ip; 
+            else
+                ip_address = process.env.IP_BA || '186.182.181.155'
 
-            let ip_address = myip.getLocalIP4();
+            let ipGetInfo = new ip_api(config)
             let geo = await ipGetInfo.getGeoInfo(ip_address);
-            console.log({geo});
-            return 'buenos aires, ar';
+            
+            let {city, country_code } = geo;
+            let name_city = `${city}, ${country_code}`
+                
+            return name_city;
             }    
     } catch (e) {
         throw new AppError(e.message, e.status);

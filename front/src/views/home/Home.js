@@ -34,9 +34,9 @@ const Home = () => {
 
     return (
         <HomeLayout>
-            <Card >
-                <div className="header">
-                    <Card className="drop-container" isLoading={isLoading}>
+            <Card isLoading={isLoading}>
+                <div className="header" >
+                    <Card className="drop-container">
                         <div className="current-date">
                           Seleccione una ubicación:
                         </div>
@@ -55,14 +55,14 @@ const Home = () => {
                         />
                     </Card>
                 </div>
-                <Card className="current-styles" isLoading={isLoading}>
+                <Card className="current-styles">
                     <div className="current-date">
                         Estado Actual
                     </div>
                     <CurrentLocation  data={!!locationWeather && locationWeather.current}/>
                     
                 </Card>
-                <Card className="current-styles" isLoading={isLoading}> 
+                <Card className="current-styles"> 
                     <div className="current-date">
                         Pronóstico para los próximos 5 días
                     </div>
