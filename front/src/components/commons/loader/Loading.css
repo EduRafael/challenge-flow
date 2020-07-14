@@ -1,4 +1,4 @@
-.lds-ripple {
+.loading {
 	display: inline-block;
 	position: relative;
 	width: 70px;
@@ -7,33 +7,39 @@
     margin: auto;
 }
 
-.lds-ripple div {
+.loading span {
+	animation: loading 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 	position: absolute;
-    border: 2px solid #493f09f3;
-    display: inline-block;
-	opacity: 1;
+    border: 6px solid #1fbd6ef3;
+    display: inline-flex;
+	opacity: 6;
 	border-radius: 50%;
-	animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 
-.lds-ripple div:nth-child(2) {
-	animation-delay: -0.8s;
+.loading span:nth-child(2) {
+	animation-delay: -.6s;
 }
 
-@keyframes lds-ripple {
+@keyframes loading {
 	0% {
-		top: 36px;
-		left: 36px;
-		width: 0;
-		height: 0;
-		opacity: 1;
+		top: 3rem;
+		left: 3rem;
+		width: 1rem;
+		height: 1rem;
+		opacity: 6;
 	}
-
+	50% {
+		top: 2rem;
+		left: 2rem;
+		width: 2rem;
+		height: 2rem;
+		opacity: 3;
+	}
 	100% {
-		top: 0px;
-		left: 0px;
-		width: 72px;
-		height: 72px;
+		top: 1rem;
+		left: 1rem;
+		width: 3rem;
+		height: 3rem;
 		opacity: 0;
 	}
 }

@@ -1,18 +1,17 @@
-import React, { useState, useEffect }  from 'react'
-import {getCurrentData, getForecastData} from '../../request/request'
+import React, { useState, useEffect }  from 'react';
+import {getCurrentData, getForecastData} from '../../request/request';
+import Card from './../../components/commons/card/Card';
+import Dropdown from './../../components/commons/dropdown/Dropdown';
+import CurrentLocation from './../../components/pages/current/CurrentWeather';
+import styledComp from 'styled-components';
+import Carousel from './../../components/pages/forecast/ForecastWeather';
+
 import './Home.css'
-import Card from './../../components/commons/card/Card'
-import Dropdown from './../../components/commons/dropdown/Dropdown'
-import { useMediaLayout } from 'use-media';
-import CurrentLocation from './../../components/pages/current/CurrentWeather'
-import styled from 'styled-components';
-import Carousel from './../../components/pages/forecast/ForecastWeather'
 
 const Home = () => {
     const [locationWeather, setLocation]  = useState(null);
-    const [isLoading, setLoading]  = useState(false);
-    const [city, setCitySelect]          = useState('Buenos Aires, AR');
-    const isWide = useMediaLayout({minWidth : 1000});
+    const [load, setLoading]              = useState(false);
+    const [city, setCitySelect]           = useState('Buenos Aires, AR');
 
     const select_city = city =>{
         setCitySelect(city);
@@ -34,9 +33,9 @@ const Home = () => {
 
     return (
         <HomeLayout>
-            <Card isLoading={isLoading}>
+            <Card loadingInfo={load}>
                 <div className="header" >
-                    <Card className="drop-container">
+                    <Card className="home-dropContaine">
                         <div className="current-date">
                           Seleccione una ubicación:
                         </div>
@@ -55,14 +54,14 @@ const Home = () => {
                         />
                     </Card>
                 </div>
-                <Card className="current-styles">
+                <Card className="home-styles">
                     <div className="current-date">
                         Estado Actual
                     </div>
                     <CurrentLocation  data={!!locationWeather && locationWeather.current}/>
                     
                 </Card>
-                <Card className="current-styles"> 
+                <Card className="home-styles"> 
                     <div className="current-date">
                         Pronóstico para los próximos 5 días
                     </div>
@@ -75,7 +74,7 @@ const Home = () => {
     
 }
 
-const HomeLayout = styled.div`
+const HomeLayout = styledComp.div`
   @import url('https://fonts.googleapis.com/css2?family=Raleway&family=Roboto+Mono&display=swap');
 
   width:100%;
@@ -94,11 +93,11 @@ const HomeLayout = styled.div`
     }
   }
 
-  .current-styles{
+  .home-styles{
     min-height: 17rem;
   }
 
-  .drop-container{
+  .home-dropContaine{
     padding: .2rem .5rem;
     display:flex;
     align-items:center;

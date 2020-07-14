@@ -4,10 +4,10 @@ import Loading from './../loader/Loading'
 import './Card.css'
 
 const Card = (forms) => {
-    const { isLoading } = forms;
+    const { loadingInfo } = forms;
     return (
             <div className="Card">
-                {isLoading && <div className="Card-isLoading"><Loading/></div>}
+                {loadingInfo && <div className="Card-loading"><Loading/></div>}
                 <div >
                     {forms.children}
                 </div>

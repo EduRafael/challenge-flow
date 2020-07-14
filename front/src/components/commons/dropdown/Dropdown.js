@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
-import styled from 'styled-components';
+import styledComp from 'styled-components';
 
 
 const Dropdown = data => {
@@ -19,28 +19,28 @@ const Dropdown = data => {
         form.addEventListener('click', e => setShowListItem(false))
     }
 
-    const _handleSelectItem = item => {
+    const _SetItemSelected = item => {
         next_value(item.value);
         setSelectedItem(item.label);
         setShowListItem(false);
     }
     
     return <DropLayout items={items} showListItem={showListItem}>
-            <div className="controller" onClick={ ()=> setShowListItem(!showListItem)}>
-                <div className="label-container">
+            <div className="drop-controller" onClick={ ()=> setShowListItem(!showListItem)}>
+                <div className="drop-labelContainer">
                     {isSelect || initial_value}
                 </div>
                 { !showListItem ? <MdKeyboardArrowDown className='drop_icon'/> : <MdKeyboardArrowUp className='drop_icon'/> }
             </div>
-            <List items={items} showListItem={showListItem}>
+            <ListItems items={items} showListItem={showListItem}>
                 {
                     !!items && items.map((item, k) =>
-                        <div key={k} className="item" onClick={()=>{ _handleSelectItem(item)}}>
+                        <span key={k} className="item" onClick={()=>{ _SetItemSelected(item)}}>
                             {item.label}
-                        </div>
+                        </span>
                     )
                 }
-            </List>
+            </ListItems>
         </DropLayout> 
 }
 
@@ -54,15 +54,15 @@ Dropdown.propTypes = {
 };
 
 
-const DropLayout = styled.div`
-  .controller{
+const DropLayout = styledComp.div`
+  .drop-controller{
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .label-container{
+  .drop-labelContainer{
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -74,17 +74,16 @@ const DropLayout = styled.div`
 	font-size: 2rem;
 }
 `;
-const List = styled.div`
+const ListItems = styledComp.div`
     overflow:hidden;
-    width:100%;
-    display: flex;
+    width:96%;
+    display: block;
     flex-direction: column;
     z-index: 1;
     transition: height .3s;
     position:absolute;
-    left: 0;
+    left: 10;
     top: 3rem;
-    border-radius: .5rem;
     box-shadow: 2px 3px 13px -6px rgba(0,0,0,0.75);;
     background-color: white;
     height: ${ ({ showListItem, items }) => showListItem ? `${items.length * 3}rem` : "0px"};
@@ -96,6 +95,10 @@ const List = styled.div`
     width: 100%;
     padding-left: 1rem ;
     display: flex;
+    border-color: #345d73 #476561;
+    border-style: ridge;
+    border-width: 1px;
+    border-radius: 1%;
     align-items: center;
       &:hover{
       background-color: #319FC1;

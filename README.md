@@ -4,13 +4,21 @@ Este es un proyecto para el challenge de la fintech de Flow.
 
 ### Configuración inicial ###
 
-Al ser una aplicación de express para iniciarlo se deben tomar las siguientes consideraciones una vez clonado:
+Al ser una aplicación de express para iniciarlo se deben tomar las siguientes consideraciones una vez clonado
 
+## Backend
 ```
 * Entrar a la carpeta api y hacer npm i para instalar las dependencias necesarias
-* Entrar a la carpeta front y hacer npm i para instalar las dependencias necesarias
+* Copiar el contenido de .env.example en .env
 
 ```
+## Frontend
+```
+* Entrar a la carpeta front y hacer npm i para instalar las dependencias necesarias
+* Copiar el contenido de .env.example en .env
+
+```
+
 
 ### Iniciar el Backend ###
 

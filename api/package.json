@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha 'Test/*.js' ",
-    "start": "node index.js"
+    "start": "node-dev index.js"
   },
   "repository": {
     "type": "git",
@@ -13,7 +13,8 @@
   },
   "author": "Eduardo Alvarado",
   "keywords": [
-    "backend challenge","fintech challenge"
+    "backend challenge",
+    "fintech challenge"
   ],
   "license": "ISC",
   "homepage": "https://bitbucket.org/edu_aldo/weather_condition#readme",

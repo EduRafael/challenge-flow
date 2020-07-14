@@ -1,20 +1,12 @@
 import React from 'react';
 import './Loading.css'
+import {BsBullseye} from 'react-icons/bs'
 
 const Loading = ()=>{
     return <div>
-                <div className="lds-ripple">
-                    <div></div>
-                    <div></div>
-                </div>
-                <div className="lds-ripple">
-                    <div></div>
-                    <div></div> 
-                </div>
-                <div className="lds-ripple">
-                    <div></div>
-                    <div></div> 
-                </div>              
+                <span className="loading" >
+                <span/><span/> <span/>
+                </span> 
            </div>
 }
 

@@ -47,11 +47,27 @@ ul .control-dots {
     justify-content: space-around;
 }
 
+.info-list-temp {
+	min-width: 20%;
+    font-size: 1.1rem;
+    height: 12rem;
+    padding: 2rem;
+    margin: auto 50px;
+	display: inline-block;
+	flex-direction: column;
+    justify-content: space-around;
+}
 
-.info-list div {
+
+.info-list  div {
 	display: flex;
-    align-items: center;
-    
+    align-items: center;  
+}
+
+.info-list-temp div {
+	display: flex;
+    align-items: center; 
+    margin: auto 100px;
 }
 
 .carousel .slide img {
