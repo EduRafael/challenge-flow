@@ -1,29 +1,42 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Este es un proyecto para el challenge de la fintech de Flow.
 
-### What is this repository for? ###
+### Configuración inicial ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+Al ser una aplicación de express para iniciarlo se deben tomar las siguientes consideraciones una vez clonado:
 
-### How do I get set up? ###
+```
+* Entrar a la carpeta api y hacer npm i para instalar las dependencias necesarias
+* Entrar a la carpeta front y hacer npm i para instalar las dependencias necesarias
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+```
 
-### Contribution guidelines ###
+### Iniciar el Backend ###
 
-* Writing tests
-* Code review
-* Other guidelines
+Para iniciar el backend hay que entrar en la carpeta api, se pueden usar varias opciones entre ellas tenemos
 
-### Who do I talk to? ###
+```
+* npm start
+```
 
-* Repo owner or admin
-* Other community or team contact
+```
+* node-dev index.js
+```
+
+```
+* node index.js
+```
+
+### Iniciar los Test del Backend ###
+
+```
+* npm test
+```
+
+
+### Iniciar el Frontend ###
+
+```
+* npm start
+```
