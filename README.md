@@ -14,7 +14,7 @@ Al ser una aplicación de express para iniciarlo se deben tomar las siguientes c
 
 ### Iniciar el Backend ###
 
-Para iniciar el backend hay que entrar en la carpeta api, se pueden usar varias opciones entre ellas tenemos
+Para iniciar el Backend hay que entrar en la carpeta api, se pueden usar varias opciones entre ellas tenemos
 
 ```
 * npm start
@@ -36,6 +36,8 @@ Para iniciar el backend hay que entrar en la carpeta api, se pueden usar varias 
 
 
 ### Iniciar el Frontend ###
+
+Para iniciar el Frontend hay que entrar en la carpeta front
 
 ```
 * npm start
