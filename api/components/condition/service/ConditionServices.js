@@ -20,6 +20,7 @@ exports.validate_ip_server = async (params)=>{
             return params.city
         } else {
             let ip_address = "";
+            
             //TODO: en el momento de poder accerder a la ip publica de cualquier servidor, se deberia poder descomentar la siguiente función
             //      por ahora, la dejo comentada y forwardeo una ip desde el lado de postman y en el .env, una vez esté funcional las validaciones de abajo
             //      deberian ser eliminadas porque no es la forma correcta de hacerlo.

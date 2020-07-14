@@ -4,13 +4,17 @@
   "description": "una aplicación de consulta de clima que pueda visualizar el",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha 'Test/*.js' ",
+    "start": "node-dev index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://edu_aldo@bitbucket.org/edu_aldo/weather_condition.git"
   },
   "author": "Eduardo Alvarado",
+  "keywords": [
+    "backend challenge","fintech challenge"
+  ],
   "license": "ISC",
   "homepage": "https://bitbucket.org/edu_aldo/weather_condition#readme",
   "dependencies": {
@@ -26,6 +30,13 @@
     "node-dev": "^5.0.0",
     "quick-local-ip": "^1.0.7",
     "request": "^2.88.2",
+    "should": "^13.2.3",
+    "supertest": "^4.0.2",
     "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "mocha": "^8.0.1",
+    "should": "^13.2.3",
+    "supertest": "^4.0.2"
   }
 }

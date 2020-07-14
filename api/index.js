@@ -3,6 +3,7 @@
 const express   = require('express');
 const cors      = require('cors');
 const env       = require('dotenv').config();
+const path      = require('path');
 
 //settings
 const PORT   = process.env.NODE_PORT || 9090
@@ -17,19 +18,25 @@ const allowCrossDomain = function (req, res, next) {
     next()
 };
 
-//X-Forwarded-For:181.46.137.8
-app.set('trust proxy', true);
+//Middleware
+app.use(express.json());
+
+//Set
+app
+    .set('trust proxy', true)
+    .set('view engine', 'ejs')
+    .set('views', path.join(__dirname, 'static/views'))
 
 //Use cors allow
 app.use(allowCrossDomain)
 
-
-const conditions = require('./components/condition/router/ConditionsRoutes')
+const conditionsRoutes = require('./components/condition/router/ConditionsRoutes')
 app
-    .use('/v1', conditions);
+    .use('/v1', conditionsRoutes)
+    .use('/', (req, res) => {  res.render('./home', {title: 'Home', name: 'Open Weather Maps'}) })
 
 try {
-    app.listen(PORT, ()=>{
+    module.exports = app.listen(PORT, ()=>{
         console.info({'SERVER': `Application up and running on PORT:[${PORT}]`})
     })
 } catch (err) {
