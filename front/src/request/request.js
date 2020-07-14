@@ -1,18 +1,22 @@
-const url_be = process.env.URL_BE;
+const URL = process.env.REACT_APP_API_BE || 'http://localhost:9001';
 
 export const getLocation = () => {
-    return fetch(`${url_be}/v1/location`)
+    return fetch(`${URL}/v1/location`)
            .then(res => res.json())
            .then(error => error.json())
 };
 
 export const getCurrentData = params => {
-    return fetch(`http://localhost:9001/v1/current/${params}`)
+    console.log({URL});
+    return fetch(`${URL}/v1/current/${params}`,{
+        method: 'GET'
+      })
            .then(res => res.json())
            
 };
 
 export const getForecastData = (params) => {
-    return fetch(`http://localhost:9001/v1/forecast/${params}`)
-           .then(res => res.json())
+    return fetch(`${URL}/v1/forecast/${params}`,{
+        method: 'GET'
+      }).then(res => res.json())
 };

@@ -50,3 +50,8 @@ Para iniciar el Frontend hay que entrar en la carpeta front
 ```
 * npm start
 ```
+
+### NOTA ### 
+
+El frontend usa la variable REACT_APP_API_BE en el .env, lo cual le permite establecer conexión con la api del backend
+Actualmente está puesto para que funcione con *http://localhost:9001*. 

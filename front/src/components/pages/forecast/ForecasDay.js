@@ -11,7 +11,6 @@ moment.locale('es')
 
 const Day = data => {
     const { day, temperature_data} = data
-    console.log({temperature_data});
     return (
         <div>            
             <div className="current-container ">
